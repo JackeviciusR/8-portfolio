@@ -1,0 +1,45 @@
+
+body {
+    display: grid;
+    /* elementai grius vienas po kitu */
+    grid-template-columns: 1ft; /*buk visame plate*/
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1200px 1fr;
+}
+
+    .cotainer > .row {
+        grid-column: 2/3;
+
+    }
+
+
+    
+/* MEDIA */
+
+@media (max-width: 1300px) {
+    .container {
+        grid-template-columns: 1fr 980px 1fr;
+    }
+}
+
+@media (max-width: 1080px) {
+    .container {
+        grid-template-columns: 1fr 780px 1fr;
+    }
+}
+
+@media (max-width: 860px) {
+    .container {
+        grid-template-columns: 1fr 640px 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .container {
+        grid-template-columns: 20px 1fr 20px;
+    }
+}
