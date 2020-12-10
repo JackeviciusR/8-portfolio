@@ -4,7 +4,11 @@
 
 /* header */
 /* hero */
+
 /* features */
+import { renderPremiumFeatures } from './components/premium-features/renderPremiumFeatures.js';
+import { premiumFeaturesData } from './data/premiumFeaturesData.js'
+
 /* app promo */
 /* app promo 2 */
 /* how works */
@@ -25,7 +29,10 @@
 
 /* header */
 /* hero */
+
 /* features */
+renderPremiumFeatures('#premium_features_block', premiumFeaturesData);
+
 /* app promo */
 /* app promo 2 */
 /* how works */
