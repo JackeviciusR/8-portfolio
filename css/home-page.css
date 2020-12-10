@@ -5,6 +5,7 @@
 /* your components */
 @import './components/button.css';
 @import './components/faq.css';
+@import './components/features.css';
 @import './components/footer.css';
 @import './components/form.css';
 @import './components/gallery.css';
@@ -19,16 +20,30 @@ CUSTOM HOME PAGE STYLES GOES BELOW THIS COMMENT
 ***********************************************
 */
 
-body {
+/* body {
     background-color: #eee;
-}
+} */
 
 /* iskeltas i prieki pries visus */
-.center {
+/* .center {
     text-align: center;
-}
+} */
 
 /* main style */
+
+h2 {
+    font-size: 44px;
+    line-height: 50px;
+    color: #111;
+}
+
+p {
+    font-size: 17px;
+    line-height: 20px;
+    color: #555;
+}
+
+
 /* header */
 /* hero */
 /* features */
