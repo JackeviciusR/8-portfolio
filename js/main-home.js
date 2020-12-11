@@ -45,3 +45,10 @@ renderPremiumFeatures('#premium_features_block', premiumFeaturesData);
 /* subscribe */
 /* contact */
 /* footer */
+
+
+// TEST
+
+import { jestTest } from './jest-test.js';
+
+jestTest();
