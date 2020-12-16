@@ -1,21 +1,20 @@
-/**************/
-// ALL IMPORTS
-/**************/
-
+/***************
+ALL IMPORTS
+****************/
 /* header */
 import { renderHeader } from './components/header/renderHeader.js';
 import { headerData } from './data/headerData.js';
 /* hero */
-
 /* features */
 import { renderPremiumFeatures } from './components/premium-features/renderPremiumFeatures.js';
-import { premiumFeaturesData } from './data/premiumFeaturesData.js'
-
+import { premiumFeaturesData } from './data/premiumFeaturesData.js';
 /* app promo */
 /* app promo 2 */
 /* how works */
 /* gallery */
 /* testimonials */
+import { Testimonials } from './components/testimonials/Testimonials.js';
+import { testimonialData } from './data/testimonialsData.js';
 /* pricing */
 /* faq */
 /* team */
@@ -24,15 +23,13 @@ import { premiumFeaturesData } from './data/premiumFeaturesData.js'
 /* contact */
 /* footer */
 
-
-/**************/
-// EXECUTION
-/**************/
-
+/***************
+EXECUTION
+****************/
 /* header */
-/* hero */
 renderHeader('header nav', headerData);
 
+/* hero */
 /* features */
 renderPremiumFeatures('#premium_features_block', premiumFeaturesData);
 
@@ -41,6 +38,18 @@ renderPremiumFeatures('#premium_features_block', premiumFeaturesData);
 /* how works */
 /* gallery */
 /* testimonials */
+const homeTestimonials = new Testimonials({
+    selector: '#testimonials_block',
+    data: testimonialData,
+    isArrowControlsVisible: false,
+    isDotControlsVisible: true,
+    maxItems: 7,
+    cloneCount: 2,
+    visibilityStrategy: 'last',
+});
+
+homeTestimonials.render();
+
 /* pricing */
 /* faq */
 /* team */
@@ -48,10 +57,3 @@ renderPremiumFeatures('#premium_features_block', premiumFeaturesData);
 /* subscribe */
 /* contact */
 /* footer */
-
-
-// TEST
-
-import { jestTest } from './jest-test.js';
-
-jestTest();
