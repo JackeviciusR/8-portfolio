@@ -5,6 +5,10 @@
     .testimonial > .view {
         display: inline-block;
         width: 100%;
+        /* jei list'as (juosta su items) iseina
+        uz view (lango, kur turetu matytis items)
+        ribos, neberodo naudojant oerflow */
+        overflow: hidden;
     }
         .testimonial > .view > .list {
             display: inline-block;
@@ -13,6 +17,7 @@
             .testimonial .list > .item {
                 display: inline-block;
                 width: 100%;
+                float: left;
                 padding: 0 40px;
                 text-align: center;
             }

@@ -8,7 +8,7 @@ const testimonialData = [
     },
     {
         img: '',
-        name: 'Algimantas Cekuolis',
+        name: 'Algimantas Čekuolis',
         location: 'Lietuva',
         rating: 4,
         comment: 'Labas vakaras mielas atsiliepimo skaitytojau... 📺👴',
@@ -25,7 +25,7 @@ const testimonialData = [
         name: 'Dalia Grybauskaitė',
         location: 'Lietuva',
         rating: 4,
-        comment: '🟨🟩🟥',
+        comment: '-|-|-|-',
     },
     {
         img: '',
