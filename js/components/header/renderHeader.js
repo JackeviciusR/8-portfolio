@@ -1,37 +1,34 @@
- 
- /**
+import { isValidInput } from "./isValidInput.js";
+import { isValidLink } from "./isValidLink.js";
+
+/**
  * Navigacijos generavimas
  * @param {string} selector CSS like selector, kaip rasti norima vieta komponento generavimui
  * @param {Array} data duomenys
  */
+function renderHeader(selector, data) {
+    if (!isValidInput(selector, data)) {
+        return false;
+    }
 
-  function renderHeader(selctor, data) {
-      // input validation
-
-      // logic
-    const DOM = document.querySelector(selctor);
+    const DOM = document.querySelector(selector);
     if (!DOM) {
         return false;
     }
 
     let HTML = '';
-    for (let item of data) { 
-    /* 2var: for (let { link, name } of data ) */
-        HTML += `<a href="${item.link}">${item.name}</a>`;
+    for (let { link, name } of data) {
+        if (isValidLink(link, name)) {
+            HTML += `<a href="${link}">${name}</a>`;
+        }
     }
 
-    // post logic validation
     if (HTML === '') {
         return false;
     }
 
-    console.log(`HTML: `, HTML);
-
-
-    // return
     DOM.innerHTML = HTML;
     return true;
+}
 
-  }
-
-  export { renderHeader }
+export { renderHeader }

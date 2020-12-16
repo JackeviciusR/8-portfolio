@@ -4,44 +4,39 @@ import { isValidFeature } from './isValidFeature.js';
 
 /**
  * Premium Features sekcija generuojanti funkcija
- * @param {string} selector CSS like salyga, aip rasti norima vieta turinio geeravimui
- * @param {Array} data Sarasas objektu aprasanciu kiekviena Premium Feature
- * @return {*}
+ * @param {string} selector CSS like salyga, kaip rasti norima vieta turinio generavimui
+ * @param {Array} data Sarasas objektu aprassanciu kiekviena Premium Feature
+ * @returns {*}
  */
 function renderPremiumFeatures(selector, featuresData) {
-    
     // input validation
     if (!isValidInput(selector, featuresData)) {
         return false;
     }
 
     // logic
-
-    // susirandam vieta pagal selektoriu
     const DOM = document.querySelector(selector);
-
     if (!DOM) {
-        console.error('ERROR: could not find an element by a given selector');
+        console.error('ERROR: could not find an elements by a given selector.');
         return false;
     }
 
-    let HTML ='';
+    let HTML = '';
+    const count = featuresData.maxLimit || featuresData.data.length;
 
-    // pasirenkame viena
-    const count = featuresData.maxLimit || featuresData.data.lenght;
-
-    for (let i=0; i < count; i++) {
-
+    for (let i = 0; i < count; i++) {
         const feature = featuresData.data[i];
+        if (!isValidFeature(feature)) {
+            continue;
+        }
 
-        console.log(feature);
         HTML += `<div class="col-4 col-sm-6 col-xs-12">
                     <div class="block">
-                        <img src="./img/${featuresData.imgFolder}/${feature.img}" alt="Premium features &quot;${feature.title}&quot; image">
+                        <img src="./img/${featuresData.imgFolder}/${feature.img}" alt="Premium feature &quot;${feature.title}&quot; image">
                         <h3>${feature.title}</h3>
                         <p>${feature.description}</p>
                     </div>
-                 </div>`;
+                </div>`;
     }
 
 
@@ -50,7 +45,7 @@ function renderPremiumFeatures(selector, featuresData) {
         console.error('ERROR: given data object does not contain valid data.');
         return false;
     }
-    
+
     // return
     DOM.innerHTML = HTML;
     return true;

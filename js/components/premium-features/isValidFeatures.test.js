@@ -1,12 +1,11 @@
 import { isValidFeature } from './isValidFeature.js';
 
-describe('', () => {
-    
-    test('prigauna netinkamus duomenis',() => {
-        expect(isValidFeature()).toEqual(false)
+describe('Blogieji scenarijai', () => {
+    test('prigauna neduodamus duomenis', () => {
+        expect(isValidFeature()).toEqual(false);
     })
 
-    test('prigauna netinkamus tipus',() => {
+    test('prigauna netinkamus tipus', () => {
         expect(isValidFeature(591)).toEqual(false);
         expect(isValidFeature('sdsf')).toEqual(false);
         expect(isValidFeature(true)).toEqual(false);
@@ -15,21 +14,19 @@ describe('', () => {
         expect(isValidFeature(null)).toEqual(false);
     })
 
-    test('duotas teksto tipo nuotrauka',() => {
-        expect(isValidFeature({img: 8451})).toEqual(false);
-        expect(isValidFeature({img: true})).toEqual(false);
-        expect(isValidFeature({img: false})).toEqual(false);
-        expect(isValidFeature({img: []})).toEqual(false);
-        expect(isValidFeature({img: {}})).toEqual(false);
+    test('duotas teksto tipo nuotrauka', () => {
+        expect(isValidFeature({ img: 8451 })).toEqual(false);
+        expect(isValidFeature({ img: true })).toEqual(false);
+        expect(isValidFeature({ img: false })).toEqual(false);
+        expect(isValidFeature({ img: [] })).toEqual(false);
+        expect(isValidFeature({ img: {} })).toEqual(false);
     })
 
     const longFile = 'a'.repeat(97) + '.jpg';
-    test('duota tinkamo ilgio nuotrauka',() => {
-        expect(isValidFeature({img: ''})).toEqual(false);
-        expect(isValidFeature({img: 'a'})).toEqual(false);
-        expect(isValidFeature({img: 'a.jp'})).toEqual(false);
-        expect(isValidFeature({img: 'a.jpg'})).toEqual(false);
-        expect(isValidFeature({img: longFile})).toEqual(false);
-
+    test('duota tinkamo ilgio nuotrauka', () => {
+        expect(isValidFeature({ img: '' })).toEqual(false);
+        expect(isValidFeature({ img: 'a' })).toEqual(false);
+        expect(isValidFeature({ img: 'a.jp' })).toEqual(false);
+        expect(isValidFeature({ img: longFile })).toEqual(false);
     })
-});
+})
