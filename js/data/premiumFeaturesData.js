@@ -1,7 +1,7 @@
 
 const premiumFeaturesData = {
     imgFolder: 'features',
-    maxLimit: 3,
+    maxLimit: 6,
     data: [
         {
             img: 'featured_image_1.png',
@@ -35,6 +35,8 @@ const premiumFeaturesData = {
         },
     ]
 }
+
+console.log(`maxLimit: ${premiumFeaturesData.maxLimit} - nurodo kiek features paveiksleliu idesime`);
 
 
 export { premiumFeaturesData }

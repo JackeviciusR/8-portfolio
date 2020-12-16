@@ -3,6 +3,8 @@
 /**************/
 
 /* header */
+import { renderHeader } from './components/header/renderHeader.js';
+import { headerData } from './data/headerData.js';
 /* hero */
 
 /* features */
@@ -29,6 +31,7 @@ import { premiumFeaturesData } from './data/premiumFeaturesData.js'
 
 /* header */
 /* hero */
+renderHeader('header nav', headerData);
 
 /* features */
 renderPremiumFeatures('#premium_features_block', premiumFeaturesData);
