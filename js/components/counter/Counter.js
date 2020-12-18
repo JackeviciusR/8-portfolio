@@ -45,6 +45,6 @@ class Counter {
 
     }
 
-
-
 }
+
+export { Counter }

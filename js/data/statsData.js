@@ -19,4 +19,6 @@ const statsData = [
         type: 'K',
         label: 'Developer',
     },
-]
+];
+
+export { statsData }
