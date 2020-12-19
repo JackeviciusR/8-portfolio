@@ -12,6 +12,7 @@ class Testimonials {
         this.listDOM = null;
         this.controlsDOM = null;
         this.dotsDOMs = null;
+        this.arrowsDOMs = null;
         this.activeDotIndex = 0;
 
         this.init();
@@ -55,7 +56,7 @@ class Testimonials {
         // perskaiciuojame vieno item'o ploti
         const itemWidth = 100 / (this.data.length + 2 * this.cloneCount);
         // pridedame klonus is abieju pusiu
-        const dataCopy = [this.data[3], this.data[4],...this.data, this.data[0], this.data[1]];
+        const dataCopy = [this.data[this.data.length-2], this.data[this.data.length-1],...this.data, this.data[0], this.data[1]];
 
         for (let testimonial of dataCopy) {
             if (!this.isValidTestimonial(testimonial)) {
@@ -122,26 +123,73 @@ class Testimonials {
         if (this.isArrowControlsVisible || this.isDotControlsVisible) {
             this.controlsDOM = this.DOM.querySelector('.controls');
 
+            if (this.isArrowControlsVisible) {
+                this.arrowsDOMs = this.controlsDOM.querySelectorAll('.fa');
+            }
+
             if (this.isDotControlsVisible) {
                 this.dotsDOMs = this.controlsDOM.querySelectorAll('.dot');
             }
         }
     }
 
-    addEvents() {
-        for (let i = 0; i < this.dotsDOMs.length; i++) {
-            const dot = this.dotsDOMs[i];
 
-            dot.addEventListener('click', () => {
-                this.listDOM.style.marginLeft = -100 * i + '%';
 
-                this.dotsDOMs[this.activeDotIndex].classList.remove('active');
-                this.activeDotIndex = i;
+    clickDot(dotIndex) {
 
-                dot.classList.add('active');
-            })
-        }
+        const dot = this.dotsDOMs[dotIndex];
+
+        this.listDOM.style.marginLeft = -100 * (dotIndex + this.cloneCount) + '%';
+
+        this.dotsDOMs[this.activeDotIndex].classList.remove('active');
+        this.activeDotIndex = dotIndex;
+
+        dot.classList.add('active');
     }
+
+
+
+    addEvents() {
+
+        if (this.isDotControlsVisible) {
+
+            for (let i = 0; i < this.dotsDOMs.length; i++) {
+                const dot = this.dotsDOMs[i];
+
+                dot.addEventListener('click', () => {
+                    this.clickDot(i);
+                });
+            }
+        }
+
+
+       if (this.isArrowControlsVisible) {
+
+            this.arrowsDOMs[0].addEventListener('click', () => {
+                let dotIndex = this.activeDotIndex - 1;
+                if (dotIndex === -1) {
+                    dotIndex = this.data.length - 1;
+                }
+                this.clickDot(dotIndex);
+            });
+
+            this.arrowsDOMs[1]. addEventListener('click', () => {
+                let dotIndex = this.activeDotIndex + 1;
+                if (dotIndex === this.dotsDOMs.length) {
+                    dotIndex = 0;
+                }
+                this.clickDot(dotIndex);
+            });
+
+
+
+       }
+
+
+    }
+
+
+
 }
 
 export { Testimonials }

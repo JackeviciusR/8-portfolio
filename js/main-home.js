@@ -57,6 +57,7 @@ new Testimonials({
     // maxItems: 7,
     // cloneCount: 2,
     // visibilityStrategy: 'last',
+    isArrowControlsVisible: true,
 });
 
 /* pricing */
