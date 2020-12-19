@@ -51,7 +51,13 @@ class Testimonials {
 
     generateItems() {
         let HTML = '';
-        for (let testimonial of this.data) {
+
+        // perskaiciuojame vieno item'o ploti
+        const itemWidth = 100 / (this.data.length + 2 * this.cloneCount);
+        // pridedame klonus is abieju pusiu
+        const dataCopy = [this.data[3], this.data[4],...this.data, this.data[0], this.data[1]];
+
+        for (let testimonial of dataCopy) {
             if (!this.isValidTestimonial(testimonial)) {
                 console.log(`items ${num}`);
                 continue;
@@ -59,7 +65,7 @@ class Testimonials {
 
             console.log(testimonial);
 
-            HTML += `<div class="item" style="width: 20%;">
+            HTML += `<div class="item" style="width: ${itemWidth}%;">
                         <img class="avatar" src="./img/testimonials/avatar-2.png" alt="${testimonial.name} testimonial image">
                         <div class="name">${testimonial.name}</div>
                         <div class="location">${testimonial.location}</div>
@@ -94,9 +100,15 @@ class Testimonials {
 
 
     render() {
+
+        //  perskaiciuojamas visas list'o ilgis, nes pridejome klonu
+        // 100 - vieno item'o plotis px
+        const listWidth = 100 * (this.data.length + 2 * this.cloneCount);
+
+        // pirma nuotrauka laikoma tikra, ne klonuota, todel list pastumiamas taip, kad klonai butu kaireje ir matytusi pirma nuotrauka po klonu
         const HTML = `<div class="testimonial">
-                        <div class="view">
-                            <div class="list" style="width: 500%;">
+                        <div class="view"> 
+                            <div class="list" style="width: ${listWidth}%; margin-left: -${this.cloneCount}00%;">
                                 ${this.generateItems()}
                             </div>
                         </div>
